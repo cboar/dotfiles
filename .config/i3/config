@@ -1,0 +1,75 @@
+set $mod Mod1
+
+# custom
+exec_always "~/.config/i3/startup"
+focus_follows_mouse no
+new_window none
+gaps inner 21
+bindsym $mod+b exec "chromium"
+
+# font
+font pango:monospace 8
+font pango:DejaVu Sans Mono 8
+
+# media
+bindsym XF86AudioRaiseVolume exec "pamixer -i 4"
+bindsym XF86AudioLowerVolume exec "pamixer -d 4"
+bindsym XF86AudioMute exec "pamixer -t"
+bindsym XF86AudioPlay exec "mpc toggle"
+bindsym XF86AudioNext exec "mpc next"
+bindsym XF86AudioPrev exec "mpc prev"
+
+# general
+bindsym $mod+Return exec urxvt
+bindsym $mod+f fullscreen toggle
+bindsym $mod+d exec "dmenu_run -fn fixed:style=regular:pixelsize=13"
+bindsym $mod+q kill
+
+# focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move
+bindsym $mod+Control+h move left
+bindsym $mod+Control+j move down
+bindsym $mod+Control+k move up
+bindsym $mod+Control+l move right
+
+# resize
+bindsym $mod+Shift+h resize shrink width 10 px or 10 ppt
+bindsym $mod+Shift+j resize grow height 10 px or 10 ppt
+bindsym $mod+Shift+k resize shrink height 10 px or 10 ppt
+bindsym $mod+Shift+l resize grow width 10 px or 10 ppt
+
+# split
+bindsym $mod+a split h
+bindsym $mod+s split v
+
+# workspaces
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# reload
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exit

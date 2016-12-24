@@ -1,0 +1,15 @@
+#!/bin/bash
+
+mpd
+killall redshift; redshift &
+xinput set-prop 8 279 1.3
+feh --no-fehbg --bg-tile ~/.config/i3/bg2
+
+i3-msg "workspace 3; append_layout ~/.config/i3/workspace3.json"
+skypeforlinux &
+urxvt -e bc -ql &
+urxvt -e ncmpcpp &
+
+i3-msg "workspace 1; append_layout ~/.config/i3/workspace1.json"
+chromium &
+urxvt -name main &
