@@ -25,9 +25,14 @@ let g:airline#extensions#tabline#show_tab_type=0
 let g:airline#extensions#tabline#tab_min_count=2
 let g:airline#extensions#tabline#show_close_button=0
 
-map <Leader> <Plug>(easymotion-prefix)
-map J <Plug>(easymotion-w)
-map K <Plug>(easymotion-b)
+omap / <Plug>(easymotion-tn)
+map  / <Plug>(easymotion-sn)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+map  J <Plug>(easymotion-w)
+map  K <Plug>(easymotion-b)
+map  H <Plug>(easymotion-linebackward)
+map  L <Plug>(easymotion-lineforward)
 
 if @% == ""
 	au VimEnter * NERDTreeMirrorOpen
@@ -42,18 +47,14 @@ map <silent> O :tabe<CR>:NERDTreeMirrorOpen<CR>
 map <silent> <Leader><Tab> :NERDTreeMirrorToggle<CR>
 map <silent> <S-Tab> :wincmd w<CR>
 
-noremap <Tab> gt
-nnoremap <silent> <esc> :noh<CR><esc>
-nnoremap <esc>^[ <esc>^[
-
 noremap <Backspace> i<Backspace>
 noremap <CR> A<CR>
+noremap <Tab> gt
 
 inoremap {<CR> {<CR>}<Esc>ko
 
 syntax enable
 colorscheme phoenix
-set hlsearch
 set incsearch
 set ruler
 set nowrap
@@ -68,8 +69,3 @@ set shiftwidth=4
 set softtabstop=4
 set pastetoggle=<F2>
 set backspace=indent,eol,start
-
-"nmap ? :call <SID>SynStack()<CR>
-function <SID>SynStack()
-	echo synIDattr(synID(line("."),col("."),1),"name") . ', ' . synIDattr(synID(line("."),col("."),0),"name") . ", " . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name")
-endfunc
