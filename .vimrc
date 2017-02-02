@@ -25,14 +25,10 @@ let g:airline#extensions#tabline#show_tab_type=0
 let g:airline#extensions#tabline#tab_min_count=2
 let g:airline#extensions#tabline#show_close_button=0
 
-omap / <Plug>(easymotion-tn)
-map  / <Plug>(easymotion-sn)
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
 map  J <Plug>(easymotion-w)
 map  K <Plug>(easymotion-b)
-map  H <Plug>(easymotion-linebackward)
-map  L <Plug>(easymotion-lineforward)
+map H Hzz
+map L Lzz
 
 if @% == ""
 	au VimEnter * NERDTreeMirrorOpen
@@ -50,11 +46,15 @@ map <silent> <S-Tab> :wincmd w<CR>
 noremap <Backspace> i<Backspace>
 noremap <CR> A<CR>
 noremap <Tab> gt
+nnoremap <silent> <esc> :noh<CR><esc>
+nnoremap <esc>^[ <esc>^[
 
 inoremap {<CR> {<CR>}<Esc>ko
+command! -nargs=0 Sw w !sudo tee % > /dev/null
 
 syntax enable
 colorscheme phoenix
+set hlsearch
 set incsearch
 set ruler
 set nowrap
