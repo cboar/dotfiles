@@ -9,7 +9,7 @@ function join(){
 	local IFS=';'; echo "$*";
 }
 function java_main {
-	grep -rl --text "main...(\[Ljava/lang/String;)V" . | sed -n 's:.*bin\/\([^$]*\)\.class:\1:p' | tail -1 | tr / .
+	grep -rl --text "main...(\[Ljava/lang/String;)V" . | sed -n 's:.*.\/\([^$]*\)\.class:\1:p' | tail -1 | tr / .
 }
 
 function first_line {
@@ -53,7 +53,9 @@ function compile_ext {
 		case $MODE in
 		"norm")
 			javac -d bin $FILE
-			jar cfe $OUT.jar $(java_main) bin/* ;;
+			cd bin
+			jar cfe $OUT.jar $(java_main) ./*.class
+			;;
 		"shift")
 			ant debug ;;
 		esac ;;
