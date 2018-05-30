@@ -17,7 +17,7 @@
     "percent": 0.75,
     "swallows": [
        {
-       "class": "^Chromium$"
+       "class": "^Firefox$"
        }
     ]
 }
