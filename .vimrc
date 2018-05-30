@@ -3,6 +3,7 @@ set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+	Plugin 'pangloss/vim-javascript'
 	Plugin 'easymotion/vim-easymotion'
 	Plugin 'bling/vim-airline'
 	Plugin 'scrooloose/nerdtree'
@@ -11,7 +12,7 @@ call vundle#begin()
 call vundle#end()
 
 " PERSONAL
-filetype plugin indent on
+filetype indent on
 let mapleader="\<Space>"
 let NERDTreeMinimalUI=1
 let NERDTreeQuitOnOpen=1
@@ -25,8 +26,13 @@ let g:airline#extensions#tabline#show_tab_type=0
 let g:airline#extensions#tabline#tab_min_count=2
 let g:airline#extensions#tabline#show_close_button=0
 
-map  J <Plug>(easymotion-w)
-map  K <Plug>(easymotion-b)
+" MOTION
+map f <Plug>(easymotion-bd-fl)
+map / <Plug>(easymotion-sn)
+map n <Plug>(easymotion-next)
+map N <Plug>(easymotion-prev)
+map J <Plug>(easymotion-w)
+map K <Plug>(easymotion-b)
 map H Hzz
 map L Lzz
 
@@ -34,9 +40,9 @@ if @% == ""
 	au VimEnter * NERDTreeMirrorOpen
 endif
 
-map ` :wall<CR>:!comprun-file "%:p" norm<CR>
-map ~ :wall<CR>:!comprun-file "%:p" shift<CR>
-map ` :wall<CR>:!comprun-file "%:p" alt<CR>
+map ` :wa<CR>:!comprun-file "%:p" norm<CR>
+map ~ :wa<CR>:!comprun-file "%:p" shift<CR>
+map ` :wa<CR>:!comprun-file "%:p" alt<CR>
 
 nmap R :%s//g<Left><Left>
 map <silent> O :tabe<CR>:NERDTreeMirrorOpen<CR>
@@ -46,26 +52,17 @@ map <silent> <S-Tab> :wincmd w<CR>
 noremap <Backspace> i<Backspace>
 noremap <CR> A<CR>
 noremap <Tab> gt
-nnoremap <silent> <esc> :noh<CR><esc>
-nnoremap <esc>^[ <esc>^[
-
 inoremap {<CR> {<CR>}<Esc>ko
-command! -nargs=0 Sw w !sudo tee % > /dev/null
 
 syntax enable
 colorscheme phoenix
-set hlsearch
-set incsearch
-set ruler
 set nowrap
 set autoread
 set noswapfile
 set cursorline
 set autoindent
-set copyindent
 set t_Co=256
 set tabstop=4
 set shiftwidth=4
-set softtabstop=4
-set pastetoggle=<F2>
+set pastetoggle=<F1>
 set backspace=indent,eol,start
