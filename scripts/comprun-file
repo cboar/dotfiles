@@ -9,30 +9,30 @@ function join(){
 	local IFS=';'; echo "$*";
 }
 function java_main {
-	grep -rl --text "main...(\[Ljava/lang/String;)V" . | sed -n 's:.*.\/\([^$]*\)\.class:\1:p' | tail -1 | tr / .
+	grep -rl --text "main...(\[Ljava/lang/String;)V" . | sed -n 's:.\/\([^$]*\)\.class:\1:p' | tail -1 | tr / .
 }
 
 function first_line {
 	local LINE=$(head -n 1 "$FULL")
 
 	if [[ $LINE == *"#!"* ]]; then
-		chmod +x $FULL; $FULL
+		chmod +x "$FULL"; "$FULL"
 		exit; fi
 	if [[ $LINE == *">>"* ]]; then
-		${LINE#*>>*}
+		eval "${LINE#*>>*}"
 		exit; fi
 }
 function find_root {
 	while [ "$PWD" != "/" ]; do
-		if [ -f ".project" ] || [ -d "src" ]; then
+		if [ -f ".project" ]; then
 			local LINE=$(head -n 1 .project)
 			if [[ "$LINE" == "+"* ]]; then
 				ARGS=${LINE#+*}
 			elif [ -n "$LINE" ]; then
-				$LINE
+				eval "$LINE"
 				exit
 			fi
-			FILE="src/**/*.$EXT"
+			FILE="./**/*.$EXT"
 			OUT="bin/${PWD##*/}"
 			return 0
 		fi
@@ -45,17 +45,16 @@ function find_root {
 function compile_ext {
 	case $EXT in
 	"c" | "h")
-		gcc -pedantic -g -std=c11 -O2 -Wall -Wextra -o $OUT $FILE $ARGS ;;
+		gcc -pedantic -g -std=c11 -O3 -Wall -Wextra -o $OUT $FILE $ARGS ;;
 	"scala")
-		local LIBRARIES=$(join lib/*.jar "")bin
-		scalac -deprecation -feature -unchecked -classpath $LIBRARIES -d bin $FILE ;;
+		fsc -cp $(join lib/*.jar ""). $FILE ;;
+	"rs")
+		rustc -A dead_code -A unused_variables $FILE ;;
 	"java")
 		case $MODE in
 		"norm")
-			javac -d bin $FILE
-			cd bin
-			jar cfe $OUT.jar $(java_main) ./*.class
-			;;
+			javac $FILE
+			jar cfe $OUT.jar $(java_main) ./*.class ;;
 		"shift")
 			ant debug ;;
 		esac ;;
@@ -63,11 +62,8 @@ function compile_ext {
 }
 function run_ext {
 	case $EXT in
-	"c" | "h")
-		gdb -q --eval-command=run --eval-command=quit $OUT ;;
 	"scala")
-		local LIBRARIES=$(join lib/*.jar "")bin
-		scala -cp $LIBRARIES $(java_main) ;;
+		scala -cp $(join lib/*.jar ""). $(java_main) ;;
 	"java")
 		case $MODE in
 		"norm")
@@ -77,6 +73,8 @@ function run_ext {
 			adb shell am start -a android.intent.action.MAIN -n $ARGS
 			adb logcat ;;
 		esac ;;
+	"hs")
+		ghci -Wall $FILE ;;
 	"js")
 		node $FILE ;;
 	"jade")
@@ -86,6 +84,7 @@ function run_ext {
 	esac
 }
 
+tput reset
 shopt -s nullglob
 cd "${FULL%/*}"
 clear

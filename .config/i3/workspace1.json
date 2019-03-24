@@ -2,7 +2,7 @@
     "border": "none",
     "current_border_width": 0,
     "floating": "auto_off",
-    "percent": 0.25,
+    "percent": 0.2,
     "swallows": [
        {
        "class": "^URxvt$",
@@ -14,7 +14,7 @@
     "border": "none",
     "current_border_width": 0,
     "floating": "auto_off",
-    "percent": 0.75,
+    "percent": 0.8,
     "swallows": [
        {
        "class": "^Firefox$"

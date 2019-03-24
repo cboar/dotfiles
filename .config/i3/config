@@ -2,21 +2,16 @@ set $mod Mod1
 
 # custom
 exec_always "~/.config/i3/startup"
-new_window none
+default_border pixel 1
 focus_follows_mouse no
 font 7x13-mod
 
 # workspaces
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+1 workspace 1; mode "default"
+bindsym $mod+2 workspace 2; mode "default"
+bindsym $mod+3 workspace 3; mode "unlocked"
+bindsym $mod+4 workspace 4; mode "unlocked"
+bindsym $mod+5 workspace 5; mode "unlocked"
 
 # media
 bindsym XF86AudioRaiseVolume exec "pamixer -i 4"
@@ -26,33 +21,49 @@ bindsym XF86AudioPlay exec "mpc toggle"
 bindsym XF86AudioNext exec "mpc next"
 bindsym XF86AudioPrev exec "mpc prev"
 
-# general
-bindsym XF86WakeUp exec "i3-msg mode vm; minput 15"
-bindsym $mod+Return exec "dmenu_run -fn fixed:style=regular:pixelsize=13"
-bindsym $mod+e exec urxvt
-bindsym $mod+f fullscreen toggle
-bindsym $mod+q kill
-bindsym $mod+Shift+r restart
+# global
+# bindsym XF86WakeUp exec ""
+bindsym $mod+Escape mode "unlocked"
 
-# move
-bindsym $mod+w move up
-bindsym $mod+a move left
-bindsym $mod+s move down
-bindsym $mod+d move right
+mode "unlocked" {
 
-# resize
-bindsym $mod+Shift+w resize shrink height 10 px
-bindsym $mod+Shift+a resize shrink width 10 px
-bindsym $mod+Shift+s resize grow height 10 px
-bindsym $mod+Shift+d resize grow width 10 px
+	bindsym $mod+Shift+r restart
 
-# split
-bindsym $mod+h split h
-bindsym $mod+v split v
+	# general
+	bindsym $mod+Return exec "dmenu_run -fn fixed:style=regular:pixelsize=13"
+	bindsym $mod+e exec urxvt
+	bindsym $mod+f floating toggle; [floating] border normal 2; [tiling] border pixel 1
+	bindsym $mod+q kill
 
-mode "vm" {
+	# move
+	bindsym $mod+w move up
+	bindsym $mod+a move left
+	bindsym $mod+s move down
+	bindsym $mod+d move right
 
-	bindsym XF86WakeUp exec "i3-msg mode default; minput 3"
+	# resize
+	bindsym $mod+Shift+w resize shrink height 10 px or 10 ppt
+	bindsym $mod+Shift+a resize shrink width 10 px or 10 ppt
+	bindsym $mod+Shift+s resize grow height 10 px or 10 ppt
+	bindsym $mod+Shift+d resize grow width 10 px or 10 ppt
+
+	# split
+	bindsym $mod+h split h
+	bindsym $mod+v split v
+
+	# workspaces
+	bindsym $mod+1 workspace 1; mode "default"
+	bindsym $mod+2 workspace 2; mode "default"
+	bindsym $mod+3 workspace 3; mode "unlocked"
+	bindsym $mod+4 workspace 4; mode "unlocked"
+	bindsym $mod+5 workspace 5; mode "unlocked"
+	bindsym $mod+Shift+1 move container to workspace 1
+	bindsym $mod+Shift+2 move container to workspace 2
+	bindsym $mod+Shift+3 move container to workspace 3
+	bindsym $mod+Shift+4 move container to workspace 4
+	bindsym $mod+Shift+5 move container to workspace 5
+
+	# media
 	bindsym XF86AudioRaiseVolume exec "pamixer -i 4"
 	bindsym XF86AudioLowerVolume exec "pamixer -d 4"
 	bindsym XF86AudioMute exec "pamixer -t"

@@ -1,5 +1,0 @@
-#!/bin/bash
-
-paplay /usr/share/sounds/freedesktop/stereo/message.oga
-xset dpms force on
-ddcutil -d 1 setvcp 60 $1

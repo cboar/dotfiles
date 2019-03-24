@@ -1,4 +1,4 @@
-! >>xrdb -merge .Xresources; urxvt
+! >>xrdb -merge .Xresources
 
 Xcursor.theme: DMZ
 
@@ -51,3 +51,5 @@ URxvt*colorUL        : _colorUL
 URxvt*foreground     : _foreground
 URxvt*background     : _background
 URxvt*cursorColor    : _cursorColor
+urxvt*transparent: true
+urxvt*shading: 33
