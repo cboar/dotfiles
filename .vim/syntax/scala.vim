@@ -38,7 +38,7 @@ unlet! b:current_syntax
 syn case match
 syn sync minlines=200 maxlines=1000
 
-syn match scalaOperator       /\(\.\|:\|!\||\|&\|+\|-\|<\|>\|=\|%\|\/\|*\|\~\|\^\)/
+"syn match scalaOperator       /\(\.\|:\|!\||\|&\|+\|-\|<\|>\|=\|%\|\/\|*\|\~\|\^\)/
 
 syn keyword scalaBoolean true false
 hi def link scalaBoolean Boolean
@@ -75,7 +75,7 @@ hi link scalaUnicodeChar Special
 
 syn match scalaOperator "||"
 syn match scalaOperator "&&"
-hi link scalaOperator Special
+hi link scalaOperator Operator
 
 syn match scalaPostNameDefinition /\_s*:\_s*/ contained nextgroup=scalaTypeDeclaration
 
@@ -87,9 +87,6 @@ hi link scalaInstanceHash Type
 
 syn match scalaUnimplemented /???/
 hi link scalaUnimplemented ERROR
-
-syn match scalaCapitalWord /\<[A-Z][A-Za-z0-9$]*\>/
-hi link scalaCapitalWord Special
 
 " Handle type declarations specially
 syn region scalaTypeStatement matchgroup=Keyword start=/\<type\_s\+\ze/ end=/$/ contains=scalaTypeTypeDeclaration,scalaSquareBrackets,scalaTypeTypeEquals,scalaTypeStatement
@@ -175,6 +172,13 @@ syn match scalaTypeAnnotationParameter /@\<[`_A-Za-z0-9$]\+\>/ contained
 hi link scalaTypeOperator Keyword
 hi link scalaTypeAnnotationParameter Function
 
+syn match GlobalFuncCall "\w\(\w\)*("he=e-1,me=e-1
+syn match GlobalCapital /\<[A-Z][A-Za-z0-9$]*\>/
+syn match GlobalOperator /\(\.\|:\|!\||\|&\|+\|-\|<\|>\|=\|%\|\/\|*\|\~\|\^\)/
+hi link GlobalFuncCall Function
+hi link GlobalOperator Operator
+hi link GlobalCapital Constant
+
 syn match scalaShebang "\%^#!.*" display
 syn region scalaMultilineComment start="/\*" end="\*/" contains=scalaMultilineComment,scalaDocLinks,scalaParameterAnnotation,scalaCommentAnnotation,scalaTodo,scalaCommentCodeBlock,@scalaHtml,@Spell keepend
 syn match scalaCommentAnnotation "@[_A-Za-z0-9$]\+" contained
@@ -212,7 +216,6 @@ syn match scalaAkkaFSMGotoUsing /\<using\>/
 syn match scalaAkkaFSMGotoUsing /\<goto\>/
 hi link scalaAkkaFSM PreProc
 hi link scalaAkkaFSMGotoUsing PreProc
-
 
 let b:current_syntax = 'scala'
 
