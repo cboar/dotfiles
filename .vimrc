@@ -19,9 +19,10 @@ let mapleader="\<Space>"
 let NERDTreeMinimalUI=1
 let NERDTreeQuitOnOpen=1
 
-let g:ctrlp_user_command = 'fd -e js -t f -c never "" %s'
+let g:ctrlp_user_command = 'fd -e js -e json -t f -c never "" %s'
 let g:ctrlp_use_caching = 0
 let g:ctrlp_working_path_mode = 0
+let g:ctrlp_cmd = ':NERDTreeClose\|CtrlP'
 
 let g:nerdtree_tabs_autofind=1
 let g:airline_theme="custom"
@@ -51,6 +52,7 @@ map ~ :wa<CR>:!comprun-file "%:p" shift<CR>
 map ` :wa<CR>:!comprun-file "%:p" alt<CR>
 
 nmap R :%s//g<Left><Left>
+map <silent> o :NERDTreeFind<CR>
 map <silent> O :tabe<CR>:NERDTreeMirrorOpen<CR>
 map <silent> <Leader><Tab> :NERDTreeMirrorToggle<CR>
 map <silent> <S-Tab> :wincmd w<CR>
@@ -72,7 +74,7 @@ set cursorline
 set autoindent
 set hlsearch
 set incsearch
-set cc=90
+"set cc=90
 set t_Co=256
 set tabstop=4
 set shiftwidth=4
