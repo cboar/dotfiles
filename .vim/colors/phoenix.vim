@@ -17,6 +17,8 @@ endif
 
 let g:colors_name = "phoenix"
 
+hi rustCapitalWord              ctermfg=11
+
 hi jadeHtmlArg                  ctermfg=4
 hi jadeTagBlockChar             ctermfg=7
 hi jadeBlockExpansionChar       ctermfg=7
@@ -31,7 +33,6 @@ hi cssFontDescriptor            ctermfg=1
 hi cssBraces                    ctermfg=7
 
 hi scalaKeyword                 ctermfg=1
-hi scalaOperator                ctermfg=1
 hi scalaSpecial                 ctermfg=1
 hi scalaExternal                ctermfg=4
 hi scalaKeywordModifier         ctermfg=4
@@ -72,6 +73,7 @@ hi bashStatement                ctermfg=7
 hi Visual                       ctermfg=NONE  ctermbg=0     cterm=reverse
 hi CursorLine                   ctermfg=NONE  ctermbg=8     cterm=NONE
 hi CursorLineNR                 ctermfg=7     ctermbg=0     cterm=NONE
+hi ColorColumn                  ctermfg=NONE  ctermbg=8     cterm=NONE
 hi LineNr                       ctermfg=6     ctermbg=8     cterm=NONE
 hi VertSplit                    ctermfg=8     ctermbg=8     cterm=NONE
 hi MatchParen                   ctermfg=NONE  ctermbg=236   cterm=NONE
@@ -82,7 +84,7 @@ hi Folded                       ctermfg=6     ctermbg=16    cterm=NONE
 hi TabLineFill                  ctermfg=7     ctermbg=NONE  cterm=NONE
 hi TabLine                      ctermfg=7     ctermbg=NONE  cterm=NONE
 
-hi Normal                       ctermfg=7     ctermbg=0     cterm=NONE
+hi Normal                       ctermfg=7     ctermbg=NONE  cterm=NONE
 hi Title						ctermfg=7     ctermbg=NONE  cterm=NONE
 hi Boolean                      ctermfg=5     ctermbg=NONE  cterm=NONE
 hi Character                    ctermfg=3     ctermbg=NONE  cterm=NONE
@@ -93,7 +95,7 @@ hi Define                       ctermfg=2     ctermbg=NONE  cterm=NONE
 hi Float                        ctermfg=5     ctermbg=NONE  cterm=NONE
 hi Function                     ctermfg=2     ctermbg=NONE  cterm=NONE
 hi Identifier                   ctermfg=7     ctermbg=NONE  cterm=NONE
-hi Keyword                      ctermfg=7     ctermbg=NONE  cterm=NONE
+hi Keyword                      ctermfg=1     ctermbg=NONE  cterm=NONE
 hi Label                        ctermfg=7     ctermbg=NONE  cterm=NONE
 hi NonText                      ctermfg=0     ctermbg=NONE  cterm=NONE
 hi Number                       ctermfg=5     ctermbg=NONE  cterm=NONE
