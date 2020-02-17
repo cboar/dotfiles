@@ -2,10 +2,21 @@
 
 Xcursor.theme: DMZ
 
+Xft.dpi:       96
+Xft.antialias: 1
+Xft.rgba:      rgb
+Xft.lcdfilter: lcddefault
+Xft.hinting:   1
+Xft.autohint:  0
+Xft.hintstyle: hintslight
+
+URxvt*lineSpace: 3
+URxvt*letterSpace: 0
 URxvt.scrollBar: false
-URxvt.internalBorder: 12
+URxvt.internalBorder: 14
 URxvt.boldFont:
-URxvt.font: 7x13-mod
+! URxvt.font: 7x13-mod
+URxvt.font: xft:Monaco:pixelsize=16
 
 #define _color0        #000000
 #define _color8        #151617
@@ -51,5 +62,6 @@ URxvt*colorUL        : _colorUL
 URxvt*foreground     : _foreground
 URxvt*background     : _background
 URxvt*cursorColor    : _cursorColor
-urxvt*transparent: true
-urxvt*shading: 33
+
+urxvt*depth: 32
+urxvt*background: rgba:0000/0000/0000/df00
