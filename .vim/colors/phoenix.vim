@@ -17,6 +17,7 @@ endif
 
 let g:colors_name = "phoenix"
 
+hi xmlAttrib                    ctermfg=5
 hi rustCapitalWord              ctermfg=11
 
 hi jadeHtmlArg                  ctermfg=4
