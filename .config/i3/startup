@@ -1,13 +1,25 @@
 #!/bin/bash
+
+# Setup workspace 1 with browser + terminal
+pkill firefox
+i3-msg "workspace 1; focus parent, focus parent, focus parent, kill; append_layout ~/.config/i3/workspace1.json"
+firefox &
+urxvt -name main &
+
+# Start window mods
+pkill compton
+pkill redshift
+compton &
+# redshift -l 34.4:-118.5 &
+
+# Music player daemon
+mpd
+
+# Background
+feh --bg-fill ~/.config/wallpapers/mountain.png
+
+# Mouse speed
 ids=$(xinput --list | grep Razer | grep pointer | awk -v search="$SEARCH" '$0 ~ search {match($0, /id=[0-9]+/);if (RSTART) print substr($0, RSTART+3, RLENGTH-3)}')
 for i in $ids; do
 	xinput set-prop $i 296 -0.4
 done
-
-mpd
-feh --no-fehbg --bg-tile ~/.config/i3/bg
-#killall redshift; redshift -l 34.4:-118.5 &
-
-i3-msg "workspace 1; focus parent, focus parent, focus parent, kill; append_layout ~/.config/i3/workspace1.json"
-killall firefox; firefox &
-urxvt -name main &

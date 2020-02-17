@@ -2,9 +2,16 @@ set $mod Mod1
 
 # custom
 exec_always "~/.config/i3/startup"
-default_border pixel 1
+default_border none
 focus_follows_mouse no
+floating_modifier $mod
 font 7x13-mod
+
+# gaps
+workspace 2 gaps inner 18
+workspace 3 gaps inner 18
+workspace 4 gaps inner 18
+workspace 5 gaps inner 18
 
 # workspaces
 bindsym $mod+1 workspace 1; mode "default"
@@ -32,7 +39,9 @@ mode "unlocked" {
 	# general
 	bindsym $mod+Return exec "dmenu_run -fn fixed:style=regular:pixelsize=13"
 	bindsym $mod+e exec urxvt
-	bindsym $mod+f floating toggle; [floating] border normal 2; [tiling] border pixel 1
+	# bindsym $mod+f floating toggle
+	bindsym $mod+Shift+f floating toggle
+	bindsym $mod+f fullscreen
 	bindsym $mod+q kill
 
 	# move
