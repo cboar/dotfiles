@@ -1,25 +1,26 @@
 #!/bin/bash
 
-# Setup workspace 1 with browser + terminal
-pkill firefox
+pkill firefox; pkill compton; pkill quickbgd
 i3-msg "workspace 1; focus parent, focus parent, focus parent, kill; append_layout ~/.config/i3/workspace1.json"
+
+smallt -name main &
 firefox &
-urxvt -name main &
+compton & disown
 
-# Start window mods
-pkill compton
-pkill redshift
-compton &
-# redshift -l 34.4:-118.5 &
+BG_DIR=~/.config/wallpapers
+feh --no-fehbg --bg-fill $BG_DIR/mountain.png &
+quickbgd \
+	$BG_DIR/mountain-gray.png \
+	$BG_DIR/mountain-purple.png \
+	$BG_DIR/mountain-blue.png \
+	$BG_DIR/mountain-green.png \
+	$BG_DIR/mountain-orange.png &
 
-# Music player daemon
-mpd
+# i3lock -u -n -i $BG_DIR/mountain2blur.png
+# exec redshift -l 34.4:-118.5 &
+# mpd
 
-# Background
-feh --bg-fill ~/.config/wallpapers/mountain.png
-
-# Mouse speed
-ids=$(xinput --list | grep Razer | grep pointer | awk -v search="$SEARCH" '$0 ~ search {match($0, /id=[0-9]+/);if (RSTART) print substr($0, RSTART+3, RLENGTH-3)}')
-for i in $ids; do
-	xinput set-prop $i 296 -0.4
-done
+#ids=$(xinput --list | grep Razer | grep pointer | awk -v search="$SEARCH" '$0 ~ search {match($0, /id=[0-9]+/);if (RSTART) print substr($0, RSTART+3, RLENGTH-3)}')
+#for i in $ids; do
+#	xinput set-prop $i 296 -0.4
+#done

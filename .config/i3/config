@@ -17,21 +17,24 @@ workspace 4 gaps inner 18
 workspace 5 gaps inner 18
 
 # workspaces
-bindsym $mod+1                  workspace 1; mode "default"
-bindsym $mod+2                  workspace 2; mode "default"
-bindsym $mod+3                  workspace 3; mode "unlocked"
-bindsym $mod+4                  workspace 4; mode "unlocked"
-bindsym $mod+5                  workspace 5; mode "unlocked"
+bindsym $mod+1                  workspace 1; mode "default"; exec "quickbg 1"
+bindsym $mod+2                  workspace 2; mode "unlocked"; exec "quickbg 2"
+bindsym $mod+3                  workspace 3; mode "unlocked"; exec "quickbg 3"
+bindsym $mod+4                  workspace 4; mode "unlocked"; exec "quickbg 4"
+bindsym $mod+5                  workspace 5; mode "unlocked"; exec "quickbg 5"
+
 # media
+bindsym XF86MonBrightnessUp     exec "light -A 5"
+bindsym XF86MonBrightnessDown   exec "light -U 5"
 bindsym XF86AudioRaiseVolume    exec "pamixer -i 4"
 bindsym XF86AudioLowerVolume    exec "pamixer -d 4"
 bindsym XF86AudioMute           exec "pamixer -t"
+bindsym XF86AudioMicMute        exec "pamixer --source 1 -t"
 bindsym XF86AudioPlay           exec "mpc toggle"
 bindsym XF86AudioNext           exec "mpc next"
 bindsym XF86AudioPrev           exec "mpc prev"
 
 mode "unlocked" {
-
 	# general
 	bindsym $mod+Return     exec "dmenu_run -fn fixed:style=regular:pixelsize=13"
 	bindsym $mod+e          exec urxvt -cd "`xcwd`"
@@ -52,23 +55,27 @@ mode "unlocked" {
 	# split
 	bindsym $mod+h          split h
 	bindsym $mod+v          split v
+
 	# workspaces
-	bindsym $mod+1          workspace 1; mode "default"
-	bindsym $mod+2          workspace 2; mode "default"
-	bindsym $mod+3          workspace 3; mode "unlocked"
-	bindsym $mod+4          workspace 4; mode "unlocked"
-	bindsym $mod+5          workspace 5; mode "unlocked"
+	bindsym $mod+1          workspace 1; mode "default"; exec "quickbg 1"
+	bindsym $mod+2          workspace 2; mode "unlocked"; exec "quickbg 2"
+	bindsym $mod+3          workspace 3; mode "unlocked"; exec "quickbg 3"
+	bindsym $mod+4          workspace 4; mode "unlocked"; exec "quickbg 4"
+	bindsym $mod+5          workspace 5; mode "unlocked"; exec "quickbg 5"
 	bindsym $mod+Shift+1    move container to workspace 1
 	bindsym $mod+Shift+2    move container to workspace 2
 	bindsym $mod+Shift+3    move container to workspace 3
 	bindsym $mod+Shift+4    move container to workspace 4
 	bindsym $mod+Shift+5    move container to workspace 5
+
 	# media
+	bindsym XF86MonBrightnessUp     exec "light -A 5"
+	bindsym XF86MonBrightnessDown   exec "light -U 5"
 	bindsym XF86AudioRaiseVolume    exec "pamixer -i 4"
 	bindsym XF86AudioLowerVolume    exec "pamixer -d 4"
 	bindsym XF86AudioMute           exec "pamixer -t"
+	bindsym XF86AudioMicMute        exec "pamixer --source 1 -t"
 	bindsym XF86AudioPlay           exec "mpc toggle"
 	bindsym XF86AudioNext           exec "mpc next"
 	bindsym XF86AudioPrev           exec "mpc prev"
-
 }
