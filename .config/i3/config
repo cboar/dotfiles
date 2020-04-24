@@ -33,6 +33,7 @@ bindsym XF86AudioMicMute        exec "pamixer --source 1 -t"
 bindsym XF86AudioPlay           exec "mpc toggle"
 bindsym XF86AudioNext           exec "mpc next"
 bindsym XF86AudioPrev           exec "mpc prev"
+bindsym XF86Tools               exec "dunstify -r 1 -a show_date $(date +%I:%M:%S\ %p)"
 
 mode "unlocked" {
 	# general
@@ -78,4 +79,5 @@ mode "unlocked" {
 	bindsym XF86AudioPlay           exec "mpc toggle"
 	bindsym XF86AudioNext           exec "mpc next"
 	bindsym XF86AudioPrev           exec "mpc prev"
+	bindsym XF86Tools               exec "dunstify -r 1 -a show_date $(date +%I:%M:%S\ %p)"
 }
