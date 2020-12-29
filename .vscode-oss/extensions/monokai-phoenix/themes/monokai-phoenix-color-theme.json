@@ -1,0 +1,124 @@
+{
+	"name": "Monokai Phoenix",
+	"type": "dark",
+	"colors": {
+		"editor.background": "#000000",
+		"editor.foreground": "#ffffff",
+		"activityBarBadge.background": "#007acc",
+		"sideBarTitle.foreground": "#a8a8a8"
+	},
+	"tokenColors": [
+		{
+			"name": "White",
+			"scope": [
+				"punctuation.definition.template-expression",
+				"support.constant.property",
+				"variable.other"
+			],
+			"settings": {
+				"foreground": "#ffffff"
+			}
+		},
+		{
+			"name": "Red",
+			"scope": [
+				"keyword.operator",
+				"keyword.control",
+				"punctuation.accessor",
+				"punctuation.comma",
+				"punctuation.separator",
+				"punctuation.terminator",
+				"punctuation.other.comma",
+				"punctuation.other.period",
+			],
+			"settings": {
+				"foreground": "#f92672"
+			}
+		},
+		{
+			"name": "Blue",
+			"scope": [
+				"entity.name.type",
+				"keyword.const",
+				"keyword.function",
+				"keyword.var",
+				"keyword.other.fn.rust",
+				"storage.type",
+				"storage.modifier",
+				"support.constant",
+				"support.class",
+				"variable.language.this",
+			],
+			"settings": {
+				"foreground": "#66d9ef"
+			}
+		},
+		{
+			"name": "Green",
+			"scope": [
+				"entity.name.function",
+				"variable.function",
+				"support.function",
+				"keyword.other.special-method"
+			],
+			"settings": {
+				"foreground": "#a6e22e"
+			}
+		},
+		{
+			"name": "Orange",
+			"scope": [
+				"variable.parameter",
+				"keyword.control.export",
+				"keyword.control.import",
+				"keyword.control.from",
+				"keyword.control.default",
+				"keyword.import",
+				"keyword.package",
+				"keyword.other.rust",
+			],
+			"settings": {
+				"foreground": "#fd971f"
+			}
+		},
+		{
+			"name": "Purple",
+			"scope": [
+				"constant.numeric",
+				"constant.language",
+				"constant.character",
+				"constant.escape",
+				"constant.other.placeholder",
+				"keyword.other.js",
+				"support.class.component"
+			],
+			"settings": {
+				"foreground": "#ae81ff"
+			}
+		},
+		{
+			"name": "Yellow",
+			"scope": [
+				"string",
+				"punctuation.definition.string",
+				"constant.other.symbol",
+				"constant.other.key",
+				"meta.object-literal.key"
+			],
+			"settings": {
+				"foreground": "#e6db74"
+			}
+		},
+		{
+			"name": "Comment",
+			"scope": [
+				"comment",
+				"punctuation.definition.comment"
+			],
+			"settings": {
+				//"fontStyle": "italic",
+				"foreground": "#75715e"
+			}
+		},
+	]
+}

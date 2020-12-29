@@ -1,0 +1,25 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "comprun-file",
+            "type": "process",
+            "command": "comprun-file",
+            "args": [
+                { "value": "${file}", "quoting": "escape" },
+                { "value": "norm", "quoting": "escape" }
+            ],
+            "presentation": {
+                "panel": "shared",
+                "reveal": "always",
+                "focus": false,
+                "echo": false,
+                "clear": true,
+                "showReuseMessage": false
+            },
+            "runOptions": {
+                "instanceLimit": 10
+            }
+        }
+    ]
+}
