@@ -1,0 +1,18 @@
+{
+    "workbench.colorTheme": "Monokai Phoenix",
+    "window.commandCenter": false,
+    "workbench.startupEditor": "none",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+    "editor.minimap.enabled": false,
+    "editor.fontFamily": "Monaco, Menlo, 'Courier New', monospace",
+    "editor.tabSize": 2,
+    "breadcrumbs.enabled": false,
+    "editor.guides.indentation": false,
+    "editor.bracketPairColorization.enabled": false,
+    "editor.fontSize": 13,
+    "editor.lineHeight": 20,
+    "editor.matchBrackets": "near"
+}
