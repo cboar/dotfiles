@@ -21,6 +21,7 @@ vim.cmd([[
   nnoremap <silent> <esc> :noh<CR><esc>
   nnoremap <esc>^[ <esc>^[
 
+  set notermguicolors
   set hlsearch
   set incsearch
   set ignorecase
@@ -80,11 +81,14 @@ else
     filetype indent plugin on
     colorscheme phoenix
     syntax enable
-    set listchars=tab:→\ ,nbsp:␣,trail:•,precedes:«,extends:»
+    set list
+    set listchars=tab:→\ ,nbsp:␣,trail:·,precedes:«,extends:»
+    set tabstop=2 softtabstop=0
+    set shiftwidth=2 smarttab
+    set expandtab
     set nowrap
     set cursorline
     set autoindent
     set t_Co=256
-    set pastetoggle=<F1>
   ]])
 end

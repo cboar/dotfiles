@@ -111,3 +111,4 @@ hi Tag                          ctermfg=4     ctermbg=NONE  cterm=NONE
 hi Type                         ctermfg=4     ctermbg=NONE  cterm=NONE
 hi Error                        ctermfg=NONE  ctermbg=1     cterm=NONE
 hi ExtraWhitespace              ctermfg=NONE  ctermbg=1     cterm=NONE
+hi Whitespace                   ctermfg=240   ctermbg=NONE  cterm=NONE
