@@ -1,3 +1,4 @@
+" 0: black
 " 1: red
 " 2: green
 " 3: yellow
@@ -7,7 +8,6 @@
 " 7: white
 " 8: cursorline
 " 11: orange
-
 set background=dark
 highlight clear
 
@@ -17,59 +17,66 @@ endif
 
 let g:colors_name = "phoenix"
 
-hi xmlAttrib                    ctermfg=5
-hi rustCapitalWord              ctermfg=11
+hi HopNextKey  cterm=bold gui=bold ctermfg=196 guifg=#ff0000
+hi HopNextKey1 cterm=bold gui=bold ctermfg=208 guifg=#ff8700
+hi HopNextKey2 cterm=bold gui=bold ctermfg=208 guifg=#ff8700
 
-hi jadeHtmlArg                  ctermfg=4
-hi jadeTagBlockChar             ctermfg=7
-hi jadeBlockExpansionChar       ctermfg=7
-hi jadeInlineDelimiter          ctermfg=11
-hi jadeInterpolationDelimiter   ctermfg=11
+hi SnacksPickerGitStatusUntracked   ctermfg=2
+hi SnacksPickerGitStatusModified    ctermfg=3
+hi SnacksPickerDirectory            ctermfg=4
+hi SnacksPickerPathHidden           ctermfg=6
+hi SnacksPickerGitStatusIgnored     ctermfg=6
+hi SnacksIndents               ctermfg=6
+hi SnacksIndentScope           ctermfg=6
+hi SnacksIndentChunk           ctermfg=6
 
-hi htmlTagN                     ctermfg=1
-hi htmlArg                      ctermfg=4
-hi htmlTitle                    ctermfg=7
-hi htmlTag                      ctermfg=7
-hi cssFontDescriptor            ctermfg=1
-hi cssBraces                    ctermfg=7
-
-hi scalaKeyword                 ctermfg=1
-hi scalaSpecial                 ctermfg=1
-hi scalaExternal                ctermfg=4
-hi scalaKeywordModifier         ctermfg=4
-hi scalaValueDecl               ctermfg=4
-hi scalaInterpolation           ctermfg=5
-hi scalaCapitalWord             ctermfg=11
-
-hi cFormat                      ctermfg=5
-hi cStructure                   ctermfg=4
-hi cPeriod                      ctermfg=1
-hi cMacroFunc                   ctermfg=11
-hi cAllcaps                     ctermfg=11
-
-hi jsPrototype                  ctermfg=4
-hi jsFunctionKey                ctermfg=2
-hi jsObjectKey                  ctermfg=3
-hi jsNull                       ctermfg=5
-hi jsUndefined                  ctermfg=5
-hi jsNan                        ctermfg=5
-hi jsLabel                      ctermfg=1
-hi jsFuncArgs                   ctermfg=11
-hi jsGlobalObjects              ctermfg=4
-hi jsNoise                      ctermfg=1
-hi jsRepeat                     ctermfg=1
-hi jsThis                       ctermfg=4
-hi jsFunction                   ctermfg=4
-hi jsFuncCall                   ctermfg=2
-hi jsFuncAssignIdent            ctermfg=2
-
-hi shVariable                   ctermfg=4
-hi shDerefVar                   ctermfg=4
-hi shDerefSimple                ctermfg=4
-hi shDoubleQuote                ctermfg=3
-hi shQuote                      ctermfg=3
-hi shStatement                  ctermfg=7
-hi bashStatement                ctermfg=7
+hi typescriptTypeAnnotation     ctermfg=1
+hi typescriptAssign             ctermfg=1
+hi typescriptObjectColon        ctermfg=1
+hi typescriptBinaryOp           ctermfg=1
+hi typescriptObjectSpread       ctermfg=1
+hi typescriptDotNotation        ctermfg=1
+hi typescriptGlobalConsoleDot   ctermfg=1
+hi typescriptGlobalObjectDot    ctermfg=1
+hi typescriptTry                ctermfg=1
+hi typescriptExceptions         ctermfg=1
+hi typescriptGlobalJSONDot      ctermfg=1
+hi typescriptTypeQuery          ctermfg=1
+hi typescriptKeywordOp          ctermfg=1
+hi typescriptOperator           ctermfg=1
+hi typescriptConsoleMethod      ctermfg=2
+hi typescriptJSONStaticMethod   ctermfg=2
+hi typescriptObjectMethod       ctermfg=2
+hi typescriptCacheMethod        ctermfg=2
+hi typescriptHeadersMethod      ctermfg=2
+hi typescriptObjectLabel        ctermfg=3
+hi typescriptVariable           ctermfg=4
+hi typescriptReadonlyModifier   ctermfg=4
+hi typescriptInterfaceName      ctermfg=4
+hi typescriptAliasDeclaration   ctermfg=4
+hi typescriptTypeParameter      ctermfg=4
+hi typescriptEnumKeyword        ctermfg=4
+hi typescriptTypeReference      ctermfg=4
+hi typescriptClassKeyword       ctermfg=4
+hi typescriptFuncKeyword        ctermfg=4
+hi typescriptClassExtends       ctermfg=4
+hi typescriptAliasKeyword       ctermfg=4
+hi typescriptInterfaceKeyword   ctermfg=4
+hi typescriptCastKeyword        ctermfg=4
+hi typescriptAccessibilityModifier ctermfg=4
+hi typescriptAsyncFuncKeyword   ctermfg=1
+hi typescriptMember             ctermfg=7
+hi typescriptFuncCallArg        ctermfg=7
+hi typescriptGlobal             ctermfg=7
+hi typescriptPredefinedType     ctermfg=7
+hi typescriptBraces             ctermfg=7
+hi typescriptDOMFormProp        ctermfg=7
+hi typescriptBOMWindowProp      ctermfg=7
+hi typescriptDestructureLabel   ctermfg=248
+hi typescriptDestructureVariable ctermfg=7
+hi typescriptDefault            ctermfg=11
+hi typescriptImport             ctermfg=11
+hi typescriptExport             ctermfg=11
 
 hi Visual                       ctermfg=NONE  ctermbg=0     cterm=reverse
 hi CursorLine                   ctermfg=NONE  ctermbg=8     cterm=NONE
@@ -86,7 +93,7 @@ hi TabLineFill                  ctermfg=7     ctermbg=NONE  cterm=NONE
 hi TabLine                      ctermfg=7     ctermbg=NONE  cterm=NONE
 
 hi Normal                       ctermfg=7     ctermbg=NONE  cterm=NONE
-hi Title						ctermfg=7     ctermbg=NONE  cterm=NONE
+hi Title                        ctermfg=7     ctermbg=NONE  cterm=NONE
 hi Boolean                      ctermfg=5     ctermbg=NONE  cterm=NONE
 hi Character                    ctermfg=3     ctermbg=NONE  cterm=NONE
 hi Comment                      ctermfg=6     ctermbg=NONE  cterm=NONE
